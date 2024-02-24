@@ -49,6 +49,19 @@ summary(model)
 model$resample
 model$finalModel
 
+# Linear Regression
+linear_model <- lm(wage ~ exper + sex + school, data=data)
+summary(linear_model)
+plot(linear_model)
+
+# Logistic Regression
+logistic_model <- glm(sex ~ wage + exper + school, data=data, family=binomial)
+summary(logistic_model)
+
+# Pearson's Correlation
+correlation_matrix <- cor(data[c("wage", "exper", "school", "sex")])
+print(correlation_matrix)
+
 # Plots and Summary for Research Question 1
 Project.mod <- lm(wage ~ school, data)
 plot(wage ~ school, data)
